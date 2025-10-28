@@ -19,39 +19,14 @@ A simplified Security Alert Companion App built with Android, Kotlin, Clean Arch
 
 The app follows Clean Architecture principles with clear separation of concerns:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    PRESENTATION LAYER                       │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
-│  │   UI (Compose)  │  │   ViewModels    │  │  Navigation  │ │
-│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                     DOMAIN LAYER                           │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
-│  │     Models      │  │   Use Cases     │  │ Repositories │ │
-│  │  (Entities)     │  │  (Interactors)  │  │ (Interfaces) │ │
-│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      DATA LAYER                            │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
-│  │ Remote Data     │  │  Local Data     │  │   Mappers    │ │
-│  │ (API Service)   │  │ (Room Database) │  │              │ │
-│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-```
+![Security Alert App Architecture](./arch.png)
 
 ### Layer Responsibilities
 
 #### 1. Presentation Layer
 - **UI Components**: Jetpack Compose screens and components
 - **ViewModels**: Manage UI state and handle user interactions
-- **Navigation**: Handle screen transitions and deep linking
+- **Navigation**: Handle screen transitions 
 
 #### 2. Domain Layer
 - **Models**: Core business entities (SecurityAlert, AlertSeverity)
@@ -59,10 +34,9 @@ The app follows Clean Architecture principles with clear separation of concerns:
 - **Repository Interfaces**: Abstract data access contracts
 
 #### 3. Data Layer
-- **Remote Data Source**: API service for fetching alerts from SIEM/TI backend
+- **Remote Data Source**: API service for fetching alerts 
 - **Local Data Source**: Room database for offline storage
 - **Repository Implementation**: Coordinates between remote and local data sources
-- **Mappers**: Transform data between layers
 
 ### Key Components
 
@@ -88,18 +62,18 @@ The app uses Dagger Hilt for dependency injection, providing:
 ## Technology Stack
 
 ### Core Technologies
-- **Kotlin**: Primary development language
-- **Jetpack Compose**: Modern UI toolkit
-- **Room**: Local database for offline storage
-- **Retrofit**: HTTP client for API communication
-- **Coroutines + Flow**: Asynchronous programming and reactive streams
-- **Hilt**: Dependency injection
+- **Kotlin**
+- **Jetpack Compose**
+- **Room**
+- **Retrofit**
+- **Coroutines + Flow**
+- **Hilt**
 
 ### Architecture Components
-- **ViewModel**: Manage UI-related data
-- **LiveData/StateFlow**: Observable data holders
-- **Navigation Component**: Handle navigation
-- **Repository Pattern**: Abstract data access
+- **ViewModel**
+- **LiveData/StateFlow**
+- **Navigation Component**
+- **Repository Pattern**
 
 ## Security Considerations
 
@@ -119,7 +93,7 @@ The app uses Dagger Hilt for dependency injection, providing:
    - Repository pattern abstracts data access
    - Use of sealed classes and data classes for type safety
 
-### Future Security Enhancements
+### Security Enhancements
 
 1. **Encrypted Database**
    ```kotlin
