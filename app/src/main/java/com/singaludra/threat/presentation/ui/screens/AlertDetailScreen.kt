@@ -1,5 +1,7 @@
 package com.singaludra.threat.presentation.ui.screens
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,11 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.singaludra.threat.presentation.ui.components.SeverityChip
-import com.singaludra.threat.presentation.ui.theme.AcknowledgedColor
-import com.singaludra.threat.presentation.ui.theme.DismissedColor
+import com.singaludra.threat.ui.theme.AcknowledgedColor
+import com.singaludra.threat.ui.theme.DismissedColor
 import com.singaludra.threat.presentation.viewmodel.AlertDetailViewModel
 import java.time.format.DateTimeFormatter
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlertDetailScreen(

@@ -1,5 +1,7 @@
 package com.singaludra.threat.presentation.ui.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -16,9 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.singaludra.threat.domain.model.AlertSeverity
 import com.singaludra.threat.domain.model.SecurityAlert
-import com.singaludra.threat.presentation.ui.theme.*
+import com.singaludra.threat.ui.theme.*
 import java.time.format.DateTimeFormatter
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlertCard(
