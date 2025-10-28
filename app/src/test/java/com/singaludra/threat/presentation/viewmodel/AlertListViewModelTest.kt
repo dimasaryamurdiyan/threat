@@ -17,7 +17,6 @@ import java.time.LocalDateTime
 @OptIn(ExperimentalCoroutinesApi::class)
 class AlertListViewModelTest {
 
-    private lateinit var getAllAlertsUseCase: GetAllAlertsUseCase
     private lateinit var refreshAlertsUseCase: RefreshAlertsUseCase
     private lateinit var filterAlertsUseCase: FilterAlertsUseCase
     private lateinit var acknowledgeAlertUseCase: AcknowledgeAlertUseCase
@@ -51,7 +50,6 @@ class AlertListViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
 
-        getAllAlertsUseCase = mockk()
         refreshAlertsUseCase = mockk()
         filterAlertsUseCase = mockk()
         acknowledgeAlertUseCase = mockk()
@@ -73,7 +71,6 @@ class AlertListViewModelTest {
 
         // When
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,
@@ -94,7 +91,6 @@ class AlertListViewModelTest {
         coEvery { refreshAlertsUseCase() } returns Result.success(Unit)
 
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,
@@ -120,7 +116,6 @@ class AlertListViewModelTest {
         coEvery { refreshAlertsUseCase() } returns Result.failure(Exception(errorMessage))
 
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,
@@ -147,7 +142,6 @@ class AlertListViewModelTest {
         coEvery { acknowledgeAlertUseCase(alertId) } returns Result.success(Unit)
 
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,
@@ -169,7 +163,6 @@ class AlertListViewModelTest {
         coEvery { dismissAlertUseCase(alertId) } returns Result.success(Unit)
 
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,
@@ -190,7 +183,6 @@ class AlertListViewModelTest {
         every { filterAlertsUseCase(any()) } returns flowOf(sampleAlerts)
 
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,
@@ -212,7 +204,6 @@ class AlertListViewModelTest {
         coEvery { refreshAlertsUseCase() } returns Result.failure(Exception("Error"))
 
         viewModel = AlertListViewModel(
-            getAllAlertsUseCase = getAllAlertsUseCase,
             refreshAlertsUseCase = refreshAlertsUseCase,
             filterAlertsUseCase = filterAlertsUseCase,
             acknowledgeAlertUseCase = acknowledgeAlertUseCase,

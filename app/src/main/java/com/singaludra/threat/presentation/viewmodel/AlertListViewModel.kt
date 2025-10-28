@@ -21,7 +21,6 @@ data class AlertListUiState(
 
 @HiltViewModel
 class AlertListViewModel @Inject constructor(
-    private val getAllAlertsUseCase: GetAllAlertsUseCase,
     private val refreshAlertsUseCase: RefreshAlertsUseCase,
     private val filterAlertsUseCase: FilterAlertsUseCase,
     private val acknowledgeAlertUseCase: AcknowledgeAlertUseCase,
