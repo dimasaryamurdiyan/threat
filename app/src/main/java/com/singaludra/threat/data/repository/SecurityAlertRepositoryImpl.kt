@@ -78,7 +78,6 @@ class SecurityAlertRepositoryImpl @Inject constructor(
                 Result.failure(Exception("Failed to fetch alerts: ${response.message()}"))
             }
         } catch (e: Exception) {
-            // Return failure but don't break the app - offline mode will continue working
             Result.failure(e)
         }
     }
