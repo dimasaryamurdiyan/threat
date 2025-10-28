@@ -86,7 +86,6 @@ The app uses Dagger Hilt for dependency injection, providing:
 
 2. **Local Storage**
    - Room database with structured data storage
-   - Prepared for encryption at rest (future enhancement)
 
 3. **Code Security**
    - Separation of concerns prevents data leakage
@@ -204,20 +203,11 @@ fun `viewModel initializes with loading state and loads alerts`() = runTest {
 
 ### Trade-offs Made
 
-1. **Simplicity vs. Feature Completeness**
-   - Chose simpler authentication model for demo
-   - Basic error handling vs. comprehensive error recovery
-   - Single-user experience vs. multi-tenant support
+1. **Prioritizing Clean Arch over initial development speed**
+   - The code is more testable and much easier to modify later for future features but took longer to set up initially.
 
-2. **Performance vs. Simplicity**
-   - Room database vs. more complex caching strategies
-   - Synchronous UI updates vs. optimistic updates
-   - Standard JSON parsing vs. streaming parsers
-
-3. **Security vs. Development Speed**
-   - Plain text database vs. encrypted storage (planned)
-   - Basic certificate validation vs. pinning
-   - Standard logging vs. secure logging
+2. **Using an Encrypted Local Database over Simple File Storage**
+   - Provide secure local storage for sensitive alert data, at the cost of added complexity.
 
 ## Getting Started
 
