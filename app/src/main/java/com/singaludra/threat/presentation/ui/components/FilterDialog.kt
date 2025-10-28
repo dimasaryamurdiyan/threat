@@ -95,24 +95,43 @@ fun FilterDialog(
                     modifier = Modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    FilterChip(
-                        selected = showAcknowledged,
-                        onClick = { showAcknowledged = !showAcknowledged },
-                        label = { Text("Show Acknowledged") },
-                        colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = androidx.compose.ui.graphics.Color(0xFF4CAF50).copy(alpha = 0.2f),
-                            selectedLabelColor = androidx.compose.ui.graphics.Color(0xFF2E7D32)
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Checkbox(
+                            checked = showAcknowledged,
+                            onCheckedChange = { showAcknowledged = it },
+                            colors = CheckboxDefaults.colors(
+                                checkedColor = androidx.compose.ui.graphics.Color(0xFF4CAF50),
+                                checkmarkColor = androidx.compose.ui.graphics.Color.White
+                            )
                         )
-                    )
-                    FilterChip(
-                        selected = showDismissed,
-                        onClick = { showDismissed = !showDismissed },
-                        label = { Text("Show Dismissed") },
-                        colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = androidx.compose.ui.graphics.Color(0xFF757575).copy(alpha = 0.2f),
-                            selectedLabelColor = androidx.compose.ui.graphics.Color(0xFF424242)
+                        Text(
+                            text = "Show Acknowledged",
+                            modifier = Modifier.padding(start = 8.dp),
+                            style = MaterialTheme.typography.bodyMedium
                         )
-                    )
+                    }
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Checkbox(
+                            checked = showDismissed,
+                            onCheckedChange = { showDismissed = it },
+                            colors = CheckboxDefaults.colors(
+                                checkedColor = androidx.compose.ui.graphics.Color(0xFF757575),
+                                checkmarkColor = androidx.compose.ui.graphics.Color.White
+                            )
+                        )
+                        Text(
+                            text = "Show Dismissed",
+                            modifier = Modifier.padding(start = 8.dp),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
                 }
             }
         },
