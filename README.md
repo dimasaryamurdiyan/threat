@@ -19,7 +19,7 @@ A simplified Security Alert Companion App built with Android, Kotlin, Clean Arch
 
 The app follows Clean Architecture principles with clear separation of concerns:
 
-![Security Alert App Architecture](./arch.png)
+![Security Alert App Architecture](./assets/arch.png)
 
 ### Layer Responsibilities
 
